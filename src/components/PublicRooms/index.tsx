@@ -41,7 +41,7 @@ function PublicRooms() {
 			</form>
 			<div style={{height:"100%", overflow:"scroll"}}>
 				{titles.filter((room) => {
-              return search === '' ? room : room.includes(search);
+              return search === '' ? room : room.toLowerCase().includes(search.toLowerCase());
           }).map((item) => {
 					return (
 						<div style={{marginTop:"0.5rem", marginBottom:"0.5rem", borderRadius:"0.8rem", display:"flex", flexDirection:"row"}}>
