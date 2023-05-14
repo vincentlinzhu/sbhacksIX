@@ -7,6 +7,7 @@ import {
   BottomRight,
   Mid,
 } from "./styles";
+import { useHistory } from "react-router-dom";
 
 export default function Overlay() {
   return (
@@ -24,7 +25,7 @@ export default function Overlay() {
         </Middle>
         <Mid>
           {/* <form style={{backgroundColor: "white", color: "#9E2129"}} action="https://gift-share-9825e.firebaseapp.com/home">    */}
-          <form style={{minWidth:"5rem"}} action="/home">   
+          <form style={{minWidth:"5rem"}} action="home">   
             <input className="done" style={{minWidth:"5rem", backgroundColor: "white", color: "#9E2129", borderRadius:"0.8rem", height:"5rem", width:"10rem"}} type="submit" value="Log In" />
           </form>
           {/* <button
