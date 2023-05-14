@@ -97,7 +97,7 @@ function Room() {
             <div style={{ display: "flex", flexDirection: "column"}}>
               <textarea
                 style={{resize: "none", minHeight: "5rem", marginBottom: "0.5rem"}}
-                placeholder="Price"
+                placeholder="Price: $"
                 onChange={InitChangeQuestionHandle(setNewQuestion2)}
                 onKeyDown={InitSendQuestionByKeyboardHandle()}
                 value={newQuestion2}

@@ -22,7 +22,7 @@ function NullQuestionBox({ className }: NullQuestionBoxProps) {
       <Svg />
       <h3>No Suggestions Yet</h3>
       <p>
-      Send this Room code to your friends and start answering questions!
+      Send this room code to your friends and start getting ideas for wonderful gifts!
       </p>
     </div>
   );
