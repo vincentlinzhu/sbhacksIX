@@ -10,7 +10,7 @@
 
 Clone this repo in your local machine with:
 
-- `git clone https://github.com/vincentlinzhu/SBHacks9.git`
+- `git clone https://github.com/vincentlinzhu/sbhacksIX.git`
 
 In the project directory, you can run:
 
@@ -24,9 +24,9 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ![screenshot](screenshot.png)
 
-- Boulangerie is perfect for content creators create Q&A rooms for their public.
+- GiftShare is perfect for content creators create Q&A rooms for their public.
 - Admins can mark questions as answered, highlighted and delete questions.
-- Users can create and like questions.
+- Users can create and like gift suggestion posts.
 - Login with Google authentication.
 - To join rooms users need the rooms code, which can be clippboarded by the room admin.
 
@@ -63,27 +63,3 @@ name: appId =>              REACT_APP_APP_ID
 - Update .firebaserc file to default the project ID to one created in your firebase console.
 
 - Enable Google as an authentication option in your firebase console.
-
-## Author
-
-👤 **Thales Neves**
-
-- GitHub: [@thneves](https://github.com/thneves)
-- Twitter: [@tsneves11](https://twitter.com/tsneves11)
-- LinkedIn: [Thales Neves](https://www.linkedin.com/in/thales-neves10/)
-
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome!
-
-Feel free to check the [issues page](<(https://github.com/thneves/City-Weather/issues)>).
-
-## 🔖 Show your support
-
-Give a ⭐️ if you like this project!
-
-## 📝 Acknowlegements
-
-- The idea of this app was developed by [@rocketseat](https://github.com/rocketseat-education)
-- Instructor [@Diego Fernandes](https://github.com/diego3g)
-- Layout Web [Figma](https://www.figma.com/file/5EwwWfALSlOn5o4LpwzB6l/Letmeask-Copy?fuid=869742879062948552)
