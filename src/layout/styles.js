@@ -31,8 +31,17 @@ export const Container = styled.div`
 
 export const Middle = styled.div`
   position: absolute;
-  bottom: 35%;
+  bottom: 40%;
   left: 9%;
+  right: 25%;
+  width: 30ch;
+  max-width: 40%;
+`
+
+export const Mid = styled.div`
+  position: absolute;
+  bottom: 30%;
+  left: 46%;
   right: 25%;
   width: 30ch;
   max-width: 40%;
@@ -74,20 +83,20 @@ export const TopRight = styled.div`
   text-align: right;
 `
 
-export const Hamburger = styled.div`
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  top: 5vw;
-  right: 5vw;
-  & > div {
-    position: relative;
-    width: 24px;
-    height: 2px;
-    background: #252525;
-    margin-bottom: 6px;
-  }
-`
+// export const Hamburger = styled.div`
+//   position: absolute;
+//   display: flex;
+//   flex-direction: column;
+//   top: 5vw;
+//   right: 5vw;
+//   & > div {
+//     position: relative;
+//     width: 24px;
+//     height: 2px;
+//     background: #252525;
+//     margin-bottom: 6px;
+//   }
+// `
 
 export const LeftMiddle = styled.div`
   position: absolute;
