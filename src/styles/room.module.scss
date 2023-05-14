@@ -1,0 +1,267 @@
+@import "./global.breakpoints.scss";
+
+@function get_assets_icon($icon) {
+  $assetsPath: "../assets/icons/";
+
+  @return #{$assetsPath}#{$icon};
+}
+
+$container: ".containerBox";
+$closeRoomButton: ".closeRoomBox";
+$loading: ".loadingBox";
+$content: ".contentBox";
+$user: ".userBox";
+$nullQuestions: ".nullQuestionsBox";
+$questions: ".questionsBox";
+$likeBtn: ".likeBox";
+$checkBtn: ".checkBox";
+$answerBtn: ".answerBox";
+$deleteBtn: ".deleteBox";
+
+// ----
+
+#{$closeRoomButton} {
+  color: var(--clr-text);
+  border-color: var(--clr-primary);
+}
+
+#{$loading} {
+  font-size: 10rem;
+
+  position: absolute;
+  top: 57.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  @include for-tablet-landscape {
+    top: 55%;
+  }
+
+  // ***
+
+  &::after {
+    content: "";
+
+    display: block;
+
+    $size: 20rem;
+
+    width: $size;
+    height: $size;
+
+    $start: 40%;
+    $end: 60%;
+
+    background-image: radial-gradient(
+        circle,
+        transparent $start,
+        var(--clr-secondary) 41% 47%,
+        transparent $end
+      ),
+      radial-gradient(
+        circle,
+        transparent $start,
+        var(--clr-primary) 48% 52%,
+        transparent $end
+      ),
+      radial-gradient(
+        circle,
+        transparent $start,
+        var(--clr-primary) 53% 59%,
+        transparent $end
+      );
+
+    animation: play_loading 3s infinite ease-out;
+
+    $skew: 10deg;
+
+    @keyframes play_loading {
+      from,
+      to {
+        transform: rotate(1turn) skewX(-$skew);
+      }
+      50% {
+        transform: rotate(2turn) skewX($skew);
+      }
+    }
+  }
+}
+
+// ***
+
+#{$content} {
+  max-width: 80rem;
+
+  padding: 0 0.8rem;
+
+  margin: 0 auto;
+}
+
+#{$content} header {
+  margin: 3.2rem 0 2.4rem;
+
+  display: flex;
+  align-items: center;
+
+  @include for-tablet-portrait-up {
+    justify-content: center;
+  }
+
+  // ***
+
+  h1 {
+    color: var(--clr-text);
+
+    font-size: var(--fs-title-big);
+
+    line-height: 1.1;
+
+    @include for-tablet-portrait-up {
+      text-align: center;
+    }
+  }
+
+  span {
+    padding: 0.8rem 1.6rem;
+    margin-left: 1.6rem;
+
+    border-radius: 100vw;
+
+    background-color: var(--clr-secondary);
+    color: var(--clr-text-lighter);
+
+    text-align: center;
+
+    font-size: var(--fs-details);
+    font-weight: 500;
+  }
+}
+
+#{$content} form {
+  // ***
+
+  textarea {
+    width: 100%;
+    min-height: 13rem;
+
+    padding: 1.4rem;
+
+    border: none;
+    border-radius: 0.8rem;
+
+    background-color: rgba(246,190,203, 0.4);
+
+    box-shadow: 0 0.2rem 1.2rem rgba(0, 0, 0, 0.04);
+
+    resize: vertical;
+  }
+
+  footer {
+    margin-top: 1.6rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  > span {
+    color: var(--clr-text-light);
+
+    font-size: var(--fs-details);
+    font-weight: 500;
+  }
+
+  button[type="button"] {
+    border: none;
+
+    background-color: transparent;
+    color: var(--clr-primary);
+
+    font-size: var(--fs-details);
+    font-weight: inherit;
+
+    text-decoration: underline;
+  }
+}
+
+#{$user} {
+  display: flex;
+  align-items: center;
+
+  // ***
+
+  img {
+    $sizeBase: 3.2rem;
+
+    width: $sizeBase;
+    height: $sizeBase;
+
+    border-radius: 50%;
+  }
+
+  span {
+    margin-left: 8px;
+
+    color: var(--clr-text);
+
+    font-size: var(--fs-details);
+    font-weight: 500;
+  }
+}
+
+#{$nullQuestions} {
+  margin-top: 20vh;
+}
+form + #{$nullQuestions} {
+  margin-top: 6.4rem;
+}
+
+#{$questions} {
+  list-style: none;
+
+  padding-bottom: 2.4rem;
+  margin-top: 3.2rem;
+
+  // ***
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    width: 150px;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.8rem;
+  }
+}
+
+#{$questions} button {
+  @mixin mixin_mask_icon($icon) {
+    mask-image: url(get_assets_icon($icon));
+  }
+
+  &#{$likeBtn} {
+    direction: rtl;
+
+    &[data-count] {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    &::before {
+      @include mixin_mask_icon("like.svg");
+    }
+  }
+
+  &#{$checkBtn}::before {
+    @include mixin_mask_icon("check.svg");
+  }
+
+  &#{$answerBtn}::before {
+    @include mixin_mask_icon("answer.svg");
+  }
+
+  &#{$deleteBtn}:hover {
+    color: #e73f5d !important;
+  }
+  &#{$deleteBtn}::before {
+    @include mixin_mask_icon("delete.svg");
+  }
+}

@@ -1,0 +1,132 @@
+$container: ".containerBox";
+$isHighlighted: ".highlightedContainer";
+$isAnswered: ".answeredContainer";
+
+$user: ".userInfoBox";
+
+// ----
+
+#{$container} {
+  padding: 2.4rem;
+
+  border-radius: 0.8rem;
+
+  box-shadow: 0 0.2rem 1.2rem rgba(0, 0, 0, 0.04);
+
+  background-color: rgba(246,190,203, 0.4);
+
+  // ***
+
+  &:not(:first-of-type) {
+    margin-top: 0.8rem;
+  }
+
+  p {
+    color: var(--clr-text);
+  }
+
+  footer {
+    margin-top: 2.4rem;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  li button {
+    padding: 0.2rem;
+
+    border: none;
+
+    background-color: transparent;
+    // color: var(--clr-text-light);
+
+    display: grid;
+    align-items: center;
+    grid-template-rows: 3rem;
+
+    position: relative;
+
+    transition-duration: 0.2s;
+    transition-property: filter, color;
+
+    // ***
+
+    &[data-is-active="true"] {
+      color: var(--clr-primary);
+    }
+
+    &:hover:not(:disabled) {
+      color: var(--clr-primary);
+
+      filter: brightness(0.8);
+    }
+
+    &::before {
+      @supports not (mask-image: initial) {
+        all: unset !important;
+        content: attr(data-alt) !important;
+      }
+
+      content: "";
+
+      width: 3rem;
+      height: 100%;
+
+      background-color: currentColor;
+
+      mask-position: top;
+      mask-repeat: no-repeat;
+    }
+
+    &::after {
+      content: attr(data-count);
+    }
+  }
+}
+
+#{$container}#{$isHighlighted} {
+  border: 0.1rem solid var(--clr-primary);
+
+  background-color: var(--clr-background-darker);
+}
+
+#{$container}#{$isAnswered} {
+  border: none;
+
+  background-color: var(--clr-background-dark);
+
+  img {
+    filter: grayscale(1);
+  }
+}
+
+// ***
+
+#{$user} {
+  display: flex;
+  align-items: center;
+
+  // ***
+
+  img {
+    $sizeBase: 3.2rem;
+
+    width: $sizeBase;
+    height: $sizeBase;
+
+    border-radius: 50%;
+  }
+
+  span {
+    margin-left: 0.8rem;
+
+    color: var(--clr-text-light);
+
+    font-size: var(--fs-details);
+  }
+}

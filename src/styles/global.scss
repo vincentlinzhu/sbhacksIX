@@ -1,0 +1,105 @@
+@import "./global.colors.scss";
+@import "./global.fonts.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  // ***
+
+  // &:focus {
+  //   border: 0.25rem solid var(--clr-text) !important;
+  // }
+}
+
+html {
+  font-size: 62.5%;
+
+  // ***
+
+  &::-webkit-scrollbar {
+    width: 1.25vmax;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--clr-background);
+  }
+  &::-webkit-scrollbar-track-piece {
+    background-color: var(--clr-text);
+  }
+}
+
+body {
+  background: var(--clr-background);
+}
+
+body,
+input,
+button,
+textarea {
+  color: var(--clr-text);
+
+  font-family: var(--ff-text);
+  // font-family: var(--ff-text);
+  font-size: var(--fs-text);
+  font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--ff-title);
+}
+
+a,
+button {
+  color: currentColor;
+
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.6;
+
+  cursor: not-allowed;
+}
+
+// My Config
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  display: inline-block;
+}
+
+.star-container > button {
+  background-color: transparent;
+  border: none;
+  outline: none !important;
+  cursor: pointer;
+  padding: 0 !important;
+  display: initial !important;
+}
+.star-container>button:hover {
+  filter: unset !important;
+}
+.star-container:focus{
+  outline: none !important;
+  
+}
+.on {
+  color: rgb(150, 0, 0);
+  
+}
+
+.off {
+  color: #ccc !important;
+}

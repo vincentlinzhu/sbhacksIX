@@ -1,0 +1,123 @@
+import styles from "../styles/auth.module.scss";
+
+import googleIconImg from "../assets/icons/google-icon.svg";
+
+import { useState, FormEvent, ChangeEvent } from "react";
+import { useHistory } from "react-router-dom";
+
+import useAuth from "../hooks/UseAuth";
+
+import { database } from "../services/firebase";
+
+import AsideInfo from "../components/AsideInfo";
+import ButtonSignOut from "../components/ButtonSignOut";
+import Logo from "../components/Logo";
+import Button from "../components/Button";
+
+export default Home;
+
+function Home() {
+  const [roomCode, setRoomCode] = useState("");
+
+  // ***
+
+  const {
+    containerBox,
+    contentBox,
+    logoBox,
+
+    contentSeparator,
+
+    btnCreateRoom,
+  } = styles;
+
+  return (
+    <div className={containerBox}>
+      <AsideInfo />
+      <ButtonSignOut />
+
+      <main>
+        <section className={contentBox}>
+          <Logo className={logoBox} />
+          <Button className={btnCreateRoom} onClick={InitCreateRoomHandle()}>
+            <img src={googleIconImg} alt="Logo da Google" />
+            Create a Room with Google
+          </Button>
+          <div className={contentSeparator}>or join a room</div>
+          <form onSubmit={InitJoinRoomHandle(roomCode)}>
+            <input
+              type="text"
+              placeholder="Enter the room code"
+              value={roomCode}
+              onChange={InitChangeRoomHandle(setRoomCode)}
+            />
+            <Button type="submit">Enter the room</Button>
+          </form>
+        </section>
+      </main>
+    </div>
+  );
+}
+
+// #region Private Functions
+
+function InitCreateRoomHandle() {
+  const { user, SignInWithGoogle } = useAuth();
+  const history = useHistory();
+
+  async function Handle() {
+    if (!user) await SignInWithGoogle();
+
+    history.replace("/rooms/new");
+  }
+
+  return Handle;
+}
+
+function InitJoinRoomHandle(roomCode: string) {
+  const history = useHistory();
+
+  async function Handle(event: FormEvent) {
+    event.preventDefault();
+
+    if (roomCode.trim() === "") return;
+
+    // ***
+
+    const submitter: HTMLButtonElement =
+      event.currentTarget.querySelector("[type='submit']") ||
+      ({} as HTMLButtonElement);
+
+    submitter.disabled = true; // ----I
+
+    const roomRef = await database.ref(`rooms/${roomCode}`).get();
+
+    submitter.disabled = false; // ----O
+
+    if (!roomRef.exists()) {
+      alert("Room does not exists!");
+      return;
+    }
+
+    if (roomRef.val().closedAt) {
+      alert("Room is already closed!");
+      return;
+    }
+
+    // ***
+
+    history.push(`/rooms/${roomRef.key}`);
+  }
+
+  return Handle;
+}
+
+function InitChangeRoomHandle(setRoomCode: (value: string) => void) {
+  function Handle({ target: { value } }: ChangeEvent<HTMLInputElement>) {
+    setRoomCode(value);
+  }
+
+  return Handle;
+}
+
+// #endregion Private Functions

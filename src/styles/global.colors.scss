@@ -1,0 +1,70 @@
+:root {
+  --theme-is-dark: 0;
+
+  --lighting-background: 97%;
+  --lighting-text: 17%;
+
+  --clr-background: white;
+  // --clr-background: rgb(255,255,204);
+  // --clr-background: hsl(0, 0%, var(--lighting-background));
+
+  --clr-background-dark: hsl(0, 0%, calc(var(--lighting-background) - 11%));
+
+  --clr-background-darker: hsl(256, 100%, var(--lighting-background));
+
+  // --clr-background-lighter: hsl(0, 0%, calc(var(--lighting-background) + 3%));
+  // --clr-background-lighter: rgb(255,255,204);
+  --clr-background-lighter: #F6BECB;
+
+  --clr-text: hsl(0, 0%, var(--lighting-text));
+
+  --clr-text-light: hsl(0, 5%, calc(var(--lighting-text) + 34%));
+
+  --clr-text-lighter: hsl(0, 0%, calc(var(--lighting-text) + 83%));
+
+  // ***
+
+  --lighting-primary: 25%;
+  --lighting-secondary: 35.69%;
+  --lighting-complementary: 25%;
+
+  --hue-primary: 5;
+  --hue-secondary: 155;
+  --hue-complementary: 3;
+
+  --clr-primary: rgb(150, 0, 0);
+  // --clr-primary: hsl(var(--hue-primary), 98%, var(--lighting-primary));
+
+  --clr-secondary: rgb(150, 0, 0);
+  // --clr-secondary: hsl(
+  //   calc(var(--hue-primary) + var(--hue-secondary)),
+  //   100%,
+  //   var(--lighting-secondary)
+  // );
+
+  --clr-complementary: hsl(
+    calc(var(--hue-primary) - var(--hue-complementary)),
+    100%,
+    var(--lighting-complementary)
+  );
+}
+
+:root.darkmode {
+  --theme-is-dark: 1;
+
+  --lighting-background: 10%;
+  --lighting-text: 80%;
+
+  // ----
+
+  --lighting-primary: 57%;
+  --lighting-secondary: 57%;
+  --lighting-complementary: 50%;
+
+  --hue-complementary: 50;
+}
+
+// /* set the complementary color to the desired RGB value */
+// :root:not(.darkmode) {
+//   --clr-complementary: rgb(55, 0, 0);
+// }

@@ -1,0 +1,47 @@
+$container: ".containerBox";
+$primary: ".primary";
+$secondary: ".secondary";
+$third: ".third";
+
+#{$container} {
+  max-width: 32rem;
+
+  margin-right: auto;
+  margin-left: auto;
+
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  // ***
+
+  h3 {
+    margin-top: 1.6rem;
+    margin-bottom: 0.8rem;
+
+    color: var(--clr-text-text);
+
+    font-size: 1.8rem;
+  }
+
+  p {
+    color: var(--clr-text-light);
+
+    font-size: var(--fs-details);
+  }
+}
+
+#{$primary} {
+  color: var(--clr-primary);
+}
+
+#{$secondary},
+#{$third} {
+  color: var(--clr-secondary);
+}
+
+#{$third} {
+  opacity: 0.6;
+}
