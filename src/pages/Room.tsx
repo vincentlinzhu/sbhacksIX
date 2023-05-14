@@ -31,6 +31,8 @@ function Room() {
   const [newQuestion1, setNewQuestion1] = useState("");
   const [newQuestion2, setNewQuestion2] = useState("");
   const [newQuestion3, setNewQuestion3] = useState("");
+  const [budget, setBudget] = useState("");
+  console.log(budget);
 
   const { id: roomCode } = useParams<RoomParamsType>();
   const { user, SignInWithGoogle } = useAuth();
@@ -82,6 +84,7 @@ function Room() {
           {questions.length > 0 && <span>{questions.length} Gift Suggestion(s)</span>}
         </header>
 
+        <h2 style={{marginTop:"3rem", marginBottom:"3rem"}}>Create a post</h2>
         <form onSubmit={InitSendQuestionHandle(newQuestion1, newQuestion2, newQuestion3, setNewQuestion1, setNewQuestion2, setNewQuestion3)}>
           <div style={{ display: "flex", flexDirection: "row" }}>
             <textarea
@@ -100,13 +103,17 @@ function Room() {
                 value={newQuestion2}
               />
 
-              <textarea
+              {/* <textarea
                 style={{resize: "none", minHeight: "5rem", marginTop: "0.5rem"}}
                 placeholder="Occasion"
                 onChange={InitChangeQuestionHandle(setNewQuestion3)}
                 onKeyDown={InitSendQuestionByKeyboardHandle()}
                 value={newQuestion3}
-              />
+              /> */}
+
+              <Button style={{marginTop: "0.5rem"}} type="submit" disabled={!user || !newQuestion1 || !newQuestion2}>
+                Submit
+              </Button>
             </div>
           </div>
 
@@ -124,16 +131,30 @@ function Room() {
                 <span>{user.name}</span>
               </div>
             )}
-            <Button type="submit" disabled={!user || !newQuestion1 || !newQuestion2 || !newQuestion3}>
-              Submit
-            </Button>
           </footer>
         </form>
+
+        <div style={{marginTop:"2rem", display:"flex", flexDirection:"row", justifyContent:"space-between"}}>
+          <h2 style={{marginTop:"2rem"}}>Posts</h2>
+          <form>
+            <input 
+              placeholder="Filter below price: $" 
+              onChange={(e) => setBudget(e.target.value)}
+              style={{borderRadius:"0.8rem", width:"100%", minHeight:"4rem", padding:"1.4rem", border:"none", backgroundColor:"rgba(246,190,203, 0.2", boxShadow:"0 0.2rem 1.2rem rgba(0, 0, 0, 0.04)", resize:"none"}}
+            ></input>
+          </form>
+        </div>
+
         {questions.length === 0 && (
           <NullQuestionsBox className={nullQuestionsBox} />
         )}
         <ul className={questionsBox}>
-          {questions.map(
+          {questions.filter((recommendation) => {
+              if (recommendation.price.includes("$")) {
+                recommendation.price = recommendation.price.slice(1);
+              }
+              return budget === '' ? recommendation : Number(recommendation.price) <= Number(budget)
+          }).map(
             ({ id: questionId, likeId, likesCount, rating, ...rest }) => (
               <QuestionBox key={questionId} {...rest}>
                 {!rest.isAnswered && (
