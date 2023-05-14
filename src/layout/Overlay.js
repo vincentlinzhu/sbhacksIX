@@ -7,7 +7,6 @@ import {
   BottomRight,
   Mid,
 } from "./styles";
-import { useHistory } from "react-router-dom";
 
 export default function Overlay() {
   return (
