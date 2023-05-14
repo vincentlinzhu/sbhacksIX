@@ -50,7 +50,7 @@ function QuestionBox({
     <li className={enhancedContainer} style={{overflowWrap: "break-word"}}>
       <div style={{display: "flex", flexDirection: "row", marginBottom: "2rem",}}>
         <p style={{marginRight: "2rem"}}><b>Price: </b>${price}</p>
-        <p ><b>Occasion: </b>{occasion}</p>
+        {/* <p ><b>Occasion: </b>{occasion}</p> */}
       </div>
       
       <p>{content}</p>

@@ -1,5 +1,5 @@
 import "./styles/global.scss";
-
+import DarkModeSwitch from "./components/DarkModeSwitch";
 import { Fragment } from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
@@ -15,7 +15,7 @@ export default App;
 function App() {
   return (
     <Fragment>
-      {/* <DarkModeSwitch /> */}
+      <DarkModeSwitch />
       <BrowserRouter>
         <AuthContextProvider>
           <Switch>

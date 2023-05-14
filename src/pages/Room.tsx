@@ -32,7 +32,7 @@ function Room() {
   const [newQuestion2, setNewQuestion2] = useState("");
   const [newQuestion3, setNewQuestion3] = useState("");
   const [budget, setBudget] = useState("");
-  console.log(budget);
+  // console.log(budget);
 
   const { id: roomCode } = useParams<RoomParamsType>();
   const { user, SignInWithGoogle } = useAuth();

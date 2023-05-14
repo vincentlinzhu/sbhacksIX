@@ -12,7 +12,7 @@ function AsideInfo() {
       </div>
 
       <strong>Gift Share</strong>
-      <p>Share Gifts</p>
+      <p>Share gifts.</p>
     </aside>
   );
 }

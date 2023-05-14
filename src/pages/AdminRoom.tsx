@@ -181,6 +181,7 @@ function InitEndRoomHandle(roomCode: string, history: any) {
     });
 
     history.push("/");
+    database.ref(`rooms/${roomCode}`).remove();
   }
 
   return Handle;

@@ -40,7 +40,6 @@ export type ParsedQuestionType = Omit<FirebaseQuestionType, "likes"> & {
   likesCount: number;
   rating: number
 };
-
 // ----
 
 function useRoom(roomCode: string) {
@@ -50,7 +49,7 @@ function useRoom(roomCode: string) {
 
   const [title, setTitle] = useState<string>();
   const [questions, setQuestions] = useState<ParsedQuestionType[]>([]);
-
+  
   // ----
 
   useEffect(() => {

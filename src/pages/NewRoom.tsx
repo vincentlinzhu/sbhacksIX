@@ -8,10 +8,10 @@ import useAuth from "../hooks/UseAuth";
 import { database } from "../services/firebase";
 import { useRef } from "react";
 
-import AsideInfo from "../components/AsideInfo";
 import ButtonSignOut from "../components/ButtonSignOut";
 import Logo from "../components/Logo";
 import Button from "../components/Button";
+import PublicRooms from "../components/PublicRooms";
 
 export default NewRoom;
 
@@ -34,7 +34,7 @@ function NewRoom() {
 
   return (
     <div className={containerBox}>
-      <AsideInfo />
+      <PublicRooms />
       <ButtonSignOut />
 
       <main>

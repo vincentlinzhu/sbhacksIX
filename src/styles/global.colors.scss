@@ -4,9 +4,9 @@
   --lighting-background: 97%;
   --lighting-text: 17%;
 
-  --clr-background: white;
+  // --clr-background: white;
   // --clr-background: rgb(255,255,204);
-  // --clr-background: hsl(0, 0%, var(--lighting-background));
+  --clr-background: hsl(0, 0%, var(--lighting-background));
 
   --clr-background-dark: hsl(0, 0%, calc(var(--lighting-background) - 11%));
 
@@ -32,10 +32,10 @@
   --hue-secondary: 155;
   --hue-complementary: 3;
 
-  --clr-primary: rgb(150, 0, 0);
+  --clr-primary: #9E2129;
   // --clr-primary: hsl(var(--hue-primary), 98%, var(--lighting-primary));
 
-  --clr-secondary: rgb(150, 0, 0);
+  --clr-secondary: #9E2129;
   // --clr-secondary: hsl(
   //   calc(var(--hue-primary) + var(--hue-secondary)),
   //   100%,
@@ -52,8 +52,8 @@
 :root.darkmode {
   --theme-is-dark: 1;
 
-  --lighting-background: 10%;
-  --lighting-text: 80%;
+  --lighting-background: 20%;
+  --lighting-text: 100%;
 
   // ----
 
