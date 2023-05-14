@@ -1,21 +1,24 @@
+import { useRef } from "react";
 import styles from "./styles.module.scss";
 import { FormEvent, useEffect, useState } from "react";
 import Button from "../Button";
 import { useHistory } from "react-router-dom";
 
-import useAuth from "../../hooks/UseAuth";
+// import useAuth from "../../hooks/UseAuth";
 
 import { database } from "../../services/firebase";
 
 export default PublicRooms;
 
 function PublicRooms() {
-	const { user } = useAuth();
+	// const { user } = useAuth();
   const { containerBox } = styles;
 	const roomsPath = `rooms/`;
-	const roomsList = database.ref(roomsPath);
+	// const roomsList = database.ref(roomsPath);
 	const [titles, setTitles] = useState<string[]>([])
 	const [search, setSearch] = useState("");
+
+	const { current: roomsList } = useRef(database.ref(roomsPath));
 	useEffect(() => {
 		roomsList.once('value', function(snapshot){
 			snapshot.forEach(
@@ -24,7 +27,7 @@ function PublicRooms() {
 				}
 			)
 		})
-	}, [user?.id])
+	}, [roomsList])
 
   return (
     <aside className={containerBox}>
