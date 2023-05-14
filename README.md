@@ -1,10 +1,3 @@
-## TODO
-
-0. change styling and text
-1. add image uploader
-2. add reviews
-3. rank by votes
-
 ## 🚀 Run This Project In Your Local Machine:
 
 ### You need:
