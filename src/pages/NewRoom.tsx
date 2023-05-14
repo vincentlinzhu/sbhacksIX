@@ -40,7 +40,7 @@ function NewRoom() {
       <main>
         <section className={`${contentBox} ${newRoomBox}`}>
           <Logo className={logoBox} />
-          <h2>Create a new Room</h2>
+          <h2>Create a New Room</h2>
           <form onSubmit={InitCreateRoomHandle(newRoom, submit)}>
             <input
               type="text"

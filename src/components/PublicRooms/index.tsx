@@ -45,7 +45,7 @@ function PublicRooms() {
           }).map((item) => {
 					return (
 						<div style={{marginTop:"0.5rem", marginBottom:"0.5rem", borderRadius:"0.8rem", display:"flex", flexDirection:"row"}}>
-							<div style={{width:"70%", textAlign:"center", fontSize:"1.2em", padding:"1rem", marginRight:"0.5rem", backgroundColor:"white", color:"darkblue", boxShadow:"0 0.2rem 1.2rem rgba(0, 0, 0, 0.04)", borderRadius:"0.8rem"}}>{item}</div>
+							<div style={{width:"70%", textAlign:"center", fontSize:"1.2em", padding:"1rem", marginRight:"0.5rem", backgroundColor:"white", color:"black", boxShadow:"0 0.2rem 1.2rem rgba(0, 0, 0, 0.04)", borderRadius:"0.8rem"}}>{item}</div>
 							{/* <button style={{padding:"1rem", backgroundColor:"white", color:"darkblue", boxShadow:"0 0.2rem 1.2rem rgba(0, 0, 0, 0.04)", borderRadius:"0.8rem", display:"flex"}}>Join Room</button> */}
 							<form onSubmit={InitJoinRoomHandle(item)}>
 								<Button style={{marginLeft:"0.5rem", backgroundColor:"rgba(246,190,203, 0.2"}} type="submit">Join</Button>
