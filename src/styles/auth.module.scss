@@ -89,7 +89,7 @@ $newRoom: ".newRoomBox";
 }
 
 #{$logo} {
-  height: 15rem;
+  height: 12rem;
 
   @include for-phone-ultra-small-landscape {
     display: none !important;
