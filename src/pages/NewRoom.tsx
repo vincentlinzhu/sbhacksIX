@@ -47,7 +47,7 @@ function NewRoom() {
               placeholder="Enter the name of the Room"
               value={newRoom}
               onChange={InitChangeRoomHandle(setNewRoom)}
-            />
+              />
             <Button ref={submit} type="submit">
               Create Room
             </Button>

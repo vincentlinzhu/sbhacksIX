@@ -20,8 +20,8 @@ function Banana({ index, z, speed }) {
   // By the time we're here the model is loaded, this is possible through React suspense
 
   // DEBUGGING
-   console.log(nodes)
-   console.log(materials)
+  //  console.log(nodes)
+  //  console.log(materials)
 
   // Local component state, it is safe to mutate because it's fixed data
   const [data] = useState({
