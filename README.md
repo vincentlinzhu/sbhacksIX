@@ -1,3 +1,7 @@
+## Description:
+
+Gift Share is a hackathon project that employs ReactJS, Firebase, React Three Fiber, and React Drei. The web application aims to be a hub of user populated ideas for gifts that other users can use for their specified event. I worked on the authentication using firebase authentication. I connected the realtime database with the frontend, and built a majority of the frontend itself.
+
 ## TODO
 
 0. change styling and text
